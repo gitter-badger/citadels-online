@@ -1,17 +1,8 @@
 (function() {
-//Шаффл для 'var _arrayCards' начало
-function shuffle(deck) {
-    for(var j, x, i = deck.length; 
-        i; 
-        j = Math.floor(Math.random() * i), 
-        x = deck[--i], 
-        deck[i] = deck[j], 
-        deck[j] = x);
-    return deck;
-}
+var setting = {
 
-shuffledDeck = shuffle(_arrayCards); 
-//Шаффл для 'var _arrayCards' конец
+    }
+    ,shuffleDeck =[];
 
 //Шаффл для 'var _gСards' начало
 Array.prototype.shuffleTwo = function() {
@@ -23,35 +14,14 @@ Array.prototype.shuffleTwo = function() {
     }
 }
 
-obj = shuffleCards(_gСards);
-
-function shuffleCards(obj) {
-    var new_Cards = {};
-    var keys = getKeys(obj);
-    keys.shuffleTwo();
-    for (var key in keys) {
-        if (key == "shuffleTwo") {
-            continue;
-        }
-        new_Cards[keys[key]] = obj[keys[key]];
-    }
-    return new_Cards;
-}
-
-function getKeys(obj) {
-    var arr = new Array();
-    for (var key in obj) {
-        arr.push(key);
-    }
-    return arr;
-}
-//Шаффл для 'var _gСards' конец
+shuffleDeck = $.extend(true, [], _gDeck);
+shuffleDeck.shuffleTwo();
 
 // Функция 
 function edTest() {
-    console.log(shuffledDeck);
-    console.log(obj);
-}
+    console.log(_gDeck);
+    console.log(shuffleDeck);
+};
 edTest();
 
 })();
