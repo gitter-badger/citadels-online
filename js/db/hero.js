@@ -11,4 +11,10 @@ var _gHero = {
             'heroName'   : 'Вор',
             'heroColor'  : false
           },
+    'mage': {
+            'priority': '3', 
+            'power'    : 'change',
+            'heroName'   : 'Чародей',
+            'heroColor'  : false
+          }
 };
