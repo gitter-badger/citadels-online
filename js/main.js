@@ -17,17 +17,20 @@ Array.prototype.shuffle = function() {
 shuffleDeck = $.extend(true, [], _gDeck);
 shuffleDeck.shuffle();
 
-function Player(playerName, playerHero, priority, king, coins, hand, field, playerStatus, quartersOnField, cardsInHand) {
-    this.playerName = name;
-    this.playerHero = playerHero;
-    this.priority = priority;
-    this.king = king;
-    this.coins = coins;
-    this.hand = hand; //массив
-    this.field = field; //массив
-    this.playerStatus = status;
-    this.quartalsOnField = quartersOnField;
-    this.cardsInHand = cardsInHand;
+function Player(options) {
+    this.options = {
+         'playerName'      : options.name || ''
+        ,'playerHero'      : options.playerHero || ''
+        ,'priority'        : options.priority || ''
+        ,'king'            : options.king || ''
+        ,'coins'           : options.coins || ''
+        ,'hand'            : options.hand || []
+        ,'field'           : options.field || []
+        ,'playerStatus'    : options.status || ''
+        ,'quartalsOnField' : options.quartersOnField || ''
+        ,'cardsInHand'     : options.cardsInHand || ''
+    }
+
     this.useHeroPower = function() {
     
     }
@@ -42,10 +45,19 @@ function Player(playerName, playerHero, priority, king, coins, hand, field, play
     }
 }
 
+var ivanOpt = {
+     'playerName'  : 'Ivan'
+    ,'playerHero'  : 'Hui'
+    ,'cardsInHand' : '3'
+}
+var ivan = new Player(ivanOpt);
+
+console.log(ivan.options);
+
 // Функция 
 function edTest() {
-    console.log(_gDeck);
-    console.log(shuffleDeck);
+    // console.log(_gDeck);
+    // console.log(shuffleDeck);
 };
 edTest();
 
