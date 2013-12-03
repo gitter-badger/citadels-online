@@ -19,40 +19,48 @@ shuffleDeck.shuffle();
 
 function Player(options) {
     this.options = {
-         'playerName'      : options.name || ''
+         'playerName'      : options.playerName || ''
         ,'playerHero'      : options.playerHero || ''
-        ,'priority'        : options.priority || ''
-        ,'king'            : options.king || ''
+        ,'playerColor'     : options.playerHero.heroColor || false
+        ,'playerPriority'  : options.playerHero.priority || ''
+        ,'playerCrown'     : options.playerHero.crown || false
         ,'coins'           : options.coins || ''
         ,'hand'            : options.hand || []
         ,'field'           : options.field || []
-        ,'playerStatus'    : options.status || ''
+        ,'playerStatus'    : options.playerStatus || ''
         ,'quartalsOnField' : options.quartersOnField || ''
-        ,'cardsInHand'     : options.cardsInHand || ''
+        ,'cardsInHand'     : options.hand.length || ''
     }
 
     this.useHeroPower = function() {
-    
+        options.playerHero.heroPower();
     }
+
     this.drawCard = function() {
         
     }
+
     this.takeCoins = function() {
         
     }
+
     this.buildQuarter = function() {
         
     }
 }
 
 var ivanOpt = {
-     'playerName'  : 'Ivan'
-    ,'playerHero'  : 'Hui'
-    ,'cardsInHand' : '3'
+     'playerName'       : 'Ivan'
+    ,'playerHero'       : _gHero.merchant
+    ,'hand'             : [shuffleDeck[0],shuffleDeck[2]]
+    ,'coins'            : 3
 }
+
 var ivan = new Player(ivanOpt);
 
 console.log(ivan.options);
+
+ivan.useHeroPower();
 
 // Функция 
 function edTest() {
