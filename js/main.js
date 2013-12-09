@@ -22,6 +22,7 @@ function Player(options) {
          'playerName'      : options.playerName || ''
         ,'playerHero'      : options.playerHero || ''
         ,'playerColor'     : options.playerHero.heroColor || false
+        ,'playerClass'     : options.playerHero.class || false
         ,'playerPriority'  : options.playerHero.priority || ''
         ,'playerCrown'     : options.playerHero.crown || false
         ,'coins'           : options.coins || ''
@@ -33,7 +34,9 @@ function Player(options) {
     }
 
     this.useHeroPower = function() {
-        options.playerHero.heroPower();
+        var hClass = this.options.playerClass;
+        arg = ['first_param'];
+        _gHeroPowers[hClass].apply(this, arg);
     }
 
     this.drawCard = function() {
@@ -41,7 +44,7 @@ function Player(options) {
     }
 
     this.takeCoins = function() {
-        
+        this.options.coins++;
     }
 
     this.buildQuarter = function() {
@@ -58,9 +61,11 @@ var ivanOpt = {
 
 var ivan = new Player(ivanOpt);
 
-console.log(ivan.options);
+if (ivan.options.coins == 3) console.log('3');
 
 ivan.useHeroPower();
+
+console.log(ivan);
 
 // Функция 
 function edTest() {

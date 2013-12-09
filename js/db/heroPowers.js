@@ -1,3 +1,4 @@
+
 var _gHeroPowers = {
     assassinPower   : function() {
 
@@ -14,8 +15,9 @@ var _gHeroPowers = {
     bishopPower     : function() {
 
     },
-    merchantPower   : function() {
-                        
+    merchant   : function(arg) {
+        this.takeCoins();
+        // console.log(this);
     },
     architectPower  : function() {
 

@@ -31,6 +31,7 @@ var _gHero = {
     },
     'merchant': {
             'priority'   : '6', 
+            'class'      : 'merchant',
             'heroName'   : 'Купец',
             'heroColor'  : 'green',
             'crown'      : false,
