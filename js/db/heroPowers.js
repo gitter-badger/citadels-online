@@ -1,28 +1,29 @@
 
 var _gHeroPowers = {
-    assassinPower   : function() {
-
+    assassin   : function() {
+        console.log('Hero_Power');
     },
-    thiefPower      : function() {
-
+    thief      : function() {
+        console.log('Hero_Power');
     },
-    magePower       : function() {
-
+    mage       : function() {
+        console.log('Hero_Power');
     },
-    kingPower       : function() {
-
+    king       : function() {
+        console.log('Hero_Power');
     },
-    bishopPower     : function() {
-
+    bishop     : function() {
+        console.log('Hero_Power');
     },
     merchant   : function(arg) {
-        this.takeCoins();
+        this.options.coins++;
+        //this.takeCoins();
         // console.log(this);
     },
-    architectPower  : function() {
-
+    architect  : function() {
+        console.log('Hero_Power');
     },
-    warlordPower    : function() {
-
+    warlord    : function() {
+        console.log('Hero_Power');
     }
 }

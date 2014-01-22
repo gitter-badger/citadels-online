@@ -2,9 +2,10 @@
 var setting = {
 
     }
-    ,shuffleDeck =[];
+    ,shuffledDeck = []
+    ,shuffledHeroes = [];
 
-//Шаффл для 'var _gСards' начало
+//Шаффл для 'var _gСards'
 Array.prototype.shuffle = function() {
     for (var z = 0; z < this.length; z++) {
         var a = this[z];
@@ -12,39 +13,79 @@ Array.prototype.shuffle = function() {
         this[z] = this[b];
         this[b] = a;
     }
+};
+
+//Отсев лишних героев
+var extraHeroes = [];
+var trash = [];
+
+Array.prototype.removeExtraHeroes = function () { 
+    for (i = 0; i < 3; i++) {
+        if (i > 0 && this[0].heroClass == 'king') {
+            trash[i] = this.shift();
+            this.push(trash[i]);
+            extraHeroes[i] = this.shift();
+        }
+        else {
+            extraHeroes[i] = this.shift();
+        }
+        
+    }   
+};
+
+function heroShuffle () {
+    shuffledHeroes = $.extend(true, [], _gHero);
+    shuffledHeroes.shuffle();
+    shuffledHeroes.removeExtraHeroes();
+}
+//Раздача карт
+
+/*Array.prototype.HandingOut = function(pHand) {
+    for (i = 0; i < 4; i++) {
+        pHand[i] = this.shift();
+    }
+};*/
+
+function HandingOut(arrDeck, arrPlayers) {
+    for (i = 0; i < arrPlayers.length; i++) {
+        for (z = 0; z < 4; z++) {
+            arrPlayers[i].options.hand[z] = arrDeck.shift();
+        }
+    }
 }
 
-shuffleDeck = $.extend(true, [], _gDeck);
-shuffleDeck.shuffle();
+shuffledDeck = $.extend(true, [], _gDeck);
+shuffledDeck.shuffle();
 
+//Конструктор игрока
 function Player(options) {
     this.options = {
-         'playerName'      : options.playerName || ''
-        ,'playerHero'      : options.playerHero || ''
-        ,'playerColor'     : options.playerHero.heroColor || false
-        ,'playerClass'     : options.playerHero.class || false
-        ,'playerPriority'  : options.playerHero.priority || ''
-        ,'playerCrown'     : options.playerHero.crown || false
-        ,'coins'           : options.coins || ''
-        ,'hand'            : options.hand || []
-        ,'field'           : options.field || []
-        ,'playerStatus'    : options.playerStatus || ''
-        ,'quartalsOnField' : options.quartersOnField || ''
-        ,'cardsInHand'     : options.hand.length || ''
+        'playerName'      : options.playerName || '',
+        'playerHero'      : options.playerHero || '',
+/*      'playerColor'     : options.playerHero.heroColor || '',
+        'playerClass'     : options.playerHero.heroClass || '',
+        'playerPriority'  : options.playerHero.priority || '',
+        'playerCrown'     : options.playerHero.crown || '',*/
+        'coins'           : options.coins || 2,
+        'hand'            : options.hand || [],
+        'field'           : options.field || [],
+        'playerStatus'    : options.playerStatus || '',
+        'quartalsOnField' : options.quartersOnField || '',
+ //       'cardsInHand'     : options.hand.length || '' //?????
     }
 
     this.useHeroPower = function() {
-        var hClass = this.options.playerClass;
+        var hClass = this.options.playerHero.heroClass;
         arg = ['first_param'];
         _gHeroPowers[hClass].apply(this, arg);
     }
 
     this.drawCard = function() {
-        
+
     }
 
     this.takeCoins = function() {
-        this.options.coins++;
+        this.options.coins += 2;
     }
 
     this.buildQuarter = function() {
@@ -53,24 +94,43 @@ function Player(options) {
 }
 
 var ivanOpt = {
-     'playerName'       : 'Ivan'
-    ,'playerHero'       : _gHero.merchant
-    ,'hand'             : [shuffleDeck[0],shuffleDeck[2]]
-    ,'coins'            : 3
-}
+    'playerName'        : 'Ivan',
+    'playerHero'        : _gHero[5]
+};
+var vasyaOpt = {
+    'playerName'        : 'Vasya'
+};
+var petyaOpt = {
+    'playerName'        : 'Petya'
+};
+var valeraOpt = {
+    'playerName'        : 'Valera'
+};
 
 var ivan = new Player(ivanOpt);
+var vasya = new Player(vasyaOpt);
+var petya = new Player(petyaOpt);
+var valera = new Player(valeraOpt);
 
-if (ivan.options.coins == 3) console.log('3');
+var players = [];
+players.push(ivan, vasya, petya, valera);
+
+HandingOut(shuffledDeck, players);
 
 ivan.useHeroPower();
 
-console.log(ivan);
+heroShuffle();
 
 // Функция 
 function edTest() {
     // console.log(_gDeck);
-    // console.log(shuffleDeck);
+    console.log(shuffledDeck);
+    // console.log(ivan);
+    // console.log(ivan.options.hand.length);
+    // console.log(_gDeck[0].cardColor);
+    // console.log(_gHero.length);
+    console.log(players);
+    console.log(shuffledHeroes);
 };
 edTest();
 
