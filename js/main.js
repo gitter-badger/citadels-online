@@ -39,18 +39,20 @@ function heroShuffle () {
     shuffledHeroes.removeExtraHeroes();
 }
 //Раздача карт
-
-/*Array.prototype.HandingOut = function(pHand) {
-    for (i = 0; i < 4; i++) {
-        pHand[i] = this.shift();
-    }
-};*/
-
-function HandingOut(arrDeck, arrPlayers) {
+function handingOut(arrDeck, arrPlayers) {
     for (i = 0; i < arrPlayers.length; i++) {
         for (z = 0; z < 4; z++) {
             arrPlayers[i].options.hand[z] = arrDeck.shift();
         }
+    }
+}
+
+//Visial - Показ Героев на экране
+Array.prototype._vShowMeHeroes = function() {
+    for (var i = 0; i < this.length; i++) {
+        var id = this[i].heroClass;
+        var img = this[i].texture;
+        $('.hero_choice').append('<div class="hero_card '+id+'"></div>');
     }
 }
 
@@ -62,16 +64,11 @@ function Player(options) {
     this.options = {
         'playerName'      : options.playerName || '',
         'playerHero'      : options.playerHero || '',
-/*      'playerColor'     : options.playerHero.heroColor || '',
-        'playerClass'     : options.playerHero.heroClass || '',
-        'playerPriority'  : options.playerHero.priority || '',
-        'playerCrown'     : options.playerHero.crown || '',*/
         'coins'           : options.coins || 2,
         'hand'            : options.hand || [],
         'field'           : options.field || [],
         'playerStatus'    : options.playerStatus || '',
         'quartalsOnField' : options.quartersOnField || '',
- //       'cardsInHand'     : options.hand.length || '' //?????
     }
 
     this.useHeroPower = function() {
@@ -115,11 +112,10 @@ var valera = new Player(valeraOpt);
 var players = [];
 players.push(ivan, vasya, petya, valera);
 
-HandingOut(shuffledDeck, players);
+handingOut(shuffledDeck, players);
 
 ivan.useHeroPower();
 
-heroShuffle();
 
 // Функция 
 function edTest() {
@@ -130,8 +126,25 @@ function edTest() {
     // console.log(_gDeck[0].cardColor);
     // console.log(_gHero.length);
     console.log(players);
-    console.log(shuffledHeroes);
+    
 };
 edTest();
+
+$('#lookAtHeroesButton').on('click', function(){
+        $('.hero_choice').empty('<div>');
+        heroShuffle();
+        console.log(shuffledHeroes);
+        shuffledHeroes._vShowMeHeroes();
+});
+
+$('.hero_choice').on('click', '.hero_card', function() {
+    var allHero = $('.hero_card');
+    var chosenHero = $(this);
+    if(!allHero.hasClass('card_highlighted')){
+        $(this).toggleClass('card_highlighted');
+    } else if(chosenHero.hasClass('card_highlighted')) {
+        $(this).toggleClass('card_highlighted');
+    }
+});
 
 })();

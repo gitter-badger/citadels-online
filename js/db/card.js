@@ -1,3 +1,5 @@
+var imgUrl = '../img'
+
 var _gDeck = [
     {
         'id'       : 0,
@@ -5,7 +7,8 @@ var _gDeck = [
         'price'    : 2,
         'points'   : 2,
         'special'  : false,
-        'cardName' : 'Рынок'
+        'cardName' : 'Рынок',
+        'texture'  : imgUrl+'/cards/green/market.png'
     },
     {
         'id'       : 1,
