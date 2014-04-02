@@ -141,9 +141,9 @@ $('.hero_choice').on('click', '.hero_card', function() {
     var allHero = $('.hero_card');
     var chosenHero = $(this);
     if(!allHero.hasClass('card_highlighted')){
-        $(this).toggleClass('card_highlighted');
+        chosenHero.toggleClass('card_highlighted');
     } else if(chosenHero.hasClass('card_highlighted')) {
-        $(this).toggleClass('card_highlighted');
+        chosenHero.toggleClass('card_highlighted');
     }
 });
 
