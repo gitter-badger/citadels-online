@@ -1,0 +1,38 @@
+@import "compass";
+
+$quarters: ( 'market':          'green'
+            ,'docks':           'green' 
+            ,'harbor':          'green'
+            ,'tavern':          'green'
+            ,'townhall':        'green'
+            ,'tradingpost':     'green'
+            ,'manor':           'yellow'    
+            ,'castle':          'yellow'
+            ,'palace':          'yellow'
+            ,'cathedral':       'blue'
+            ,'church':          'blue'
+            ,'monastery':       'blue'
+            ,'temple':          'blue'
+            ,'watchtower':      'red' 
+            ,'battlefield':     'red'
+            ,'prison':          'red'
+            ,'fortress':        'red'
+            ,'dragongate':      'purple'
+            ,'graveyard':       'purple'
+            ,'greatwall':       'purple'
+            ,'hauntedcity':     'purple'
+            ,'keep':            'purple'
+            ,'laboratory':      'purple'
+            ,'library':         'purple'
+            ,'observatory':     'purple'
+            ,'schoolofmagic':   'purple'
+            ,'smithy':          'purple'
+            ,'university':      'purple'
+);
+
+@each $card, $color in $quarters {
+    .#{$card} {
+        background: url(../img/cards/#{$color}/#{$card}.png) 100% no-repeat;
+        background-size: cover;
+    }
+}

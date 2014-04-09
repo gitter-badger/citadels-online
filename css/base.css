@@ -1,0 +1,138 @@
+.container {
+  width: 1380px;
+  margin: 10px auto;
+}
+
+header {
+  background-color: #8cd0de;
+  padding: 5px;
+  vertical-align: top;
+}
+header .logo {
+  width: 200px;
+  height: 59.33333333333333px;
+  text-indent: -9999px;
+  background: url(../img/logo.png) 100% 100% no-repeat;
+  background-size: cover;
+}
+header div, header nav {
+  display: inline-block;
+  position: relative;
+}
+header nav {
+  color: #d6dadb;
+  font-size: 20px;
+  padding: 10px;
+  margin: -10px 5px 0 5px;
+  cursor: pointer;
+  background: #2894a9;
+  text-shadow: 2px 2px 1px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow: 2px 2px 1px rgba(50, 50, 50, 0.75);
+  -webkit-box-shadow: 2px 2px 1px rgba(50, 50, 50, 0.75);
+  box-shadow: 2px 2px 1px rgba(50, 50, 50, 0.75);
+  -moz-transition: all 0.1s ease-out;
+  -o-transition: all 0.1s ease-out;
+  -webkit-transition: all 0.1s ease-out;
+  transition: all 0.1s ease-out;
+}
+header nav:hover {
+  -moz-transition: all 0.1s ease-in;
+  -o-transition: all 0.1s ease-in;
+  -webkit-transition: all 0.1s ease-in;
+  transition: all 0.1s ease-in;
+  background: #27aac4;
+}
+header nav:active {
+  -moz-transition: all 0.1s ease-in;
+  -o-transition: all 0.1s ease-in;
+  -webkit-transition: all 0.1s ease-in;
+  transition: all 0.1s ease-in;
+  -moz-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.1);
+  -moz-transform: translate(2px, 2px);
+  -ms-transform: translate(2px, 2px);
+  -webkit-transform: translate(2px, 2px);
+  transform: translate(2px, 2px);
+  background: #277f90;
+}
+
+.main {
+  position: relative;
+  text-align: center;
+  background-color: rgba(247, 245, 233, 0.8);
+}
+
+.game-field {
+  display: inline-block;
+  margin: 10px 0 0 15px;
+  padding: 15px;
+  background-color: grey;
+}
+.game-field .players-hand {
+  width: 896px;
+  height: 174.90639px;
+}
+
+.card {
+  display: inline-block;
+  width: 112px;
+  height: 174.90639px;
+  vertical-align: middle;
+  margin: 0 5px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.shading {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(41, 41, 41, 0.9);
+  top: 0;
+  left: 0;
+  z-index: 100;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.hero-choice {
+  position: relative;
+  display: inline-block;
+  top: 200px;
+  padding: 15px;
+}
+.hero-choice .hero-card {
+  -moz-transition: all 0.1s ease-out;
+  -o-transition: all 0.1s ease-out;
+  -webkit-transition: all 0.1s ease-out;
+  transition: all 0.1s ease-out;
+  width: 168px;
+  height: 262.35958px;
+}
+.hero-choice .hero-card:hover {
+  -moz-transition: all 0.1s ease-in;
+  -o-transition: all 0.1s ease-in;
+  -webkit-transition: all 0.1s ease-in;
+  transition: all 0.1s ease-in;
+  -moz-box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.65);
+  -webkit-box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.65);
+  box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.65);
+  -moz-transform: translate(-5px, -5px);
+  -ms-transform: translate(-5px, -5px);
+  -webkit-transform: translate(-5px, -5px);
+  transform: translate(-5px, -5px);
+}
+
+.hero-pick {
+  width: 168px;
+  height: 262.35958px;
+  -moz-box-shadow: 0 0 15px 2px gold;
+  -webkit-box-shadow: 0 0 15px 2px gold;
+  box-shadow: 0 0 15px 2px gold;
+  -moz-transform: scale(1.5, 1.5);
+  -ms-transform: scale(1.5, 1.5);
+  -webkit-transform: scale(1.5, 1.5);
+  transform: scale(1.5, 1.5);
+}

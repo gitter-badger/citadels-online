@@ -16,41 +16,38 @@
         <script src="js/vendor/modernizr-2.7.0.min.js"></script>
     </head>
     <body>
-        <!-- Add your site or application content here -->
-        <div class="container">
+        <div class="container"> 
             <header>
                 <div class="logo"><h1>Цитадели</h1></div>
                 <nav id="choose-a-hero">Choose a hero</nav>
                 <nav id="deal-the-cards">Deal the cards</nav>
             </header>
             <div class="main">
-                <div class="hero-choice"></div>
                 <div class="game-field player_1" data-player-name="Ivan">
-                    <div class="hero">
+                    <div class="players-hero">
                         <div class="head"></div>
                         <div class="body"></div>
                     </div>
-                    <div class="hand">
+                    <div class="players-hand">
                         <div class="head"></div>
                         <div class="body"></div>
                     </div>
                 </div>
-                <div class="game-field player_2" data-player-name="Vasya">
-                    <div class="hero"></div>
-                    <div class="hand"></div>
+                <div class="game-field">
+                    <div class="players-hand"></div>
                 </div>
-                <div class="game-field player_3" data-player-name="Petya">
-                    <div class="hero"></div>
-                    <div class="hand"></div>
+                <div class="game-field">
+                    <div class="players-hand"></div>
                 </div>
-                <div class="game-field player_4" data-player-name="Valera">
-                    <div class="hero"></div>
-                    <div class="hand"></div>
+                <div class="game-field">
+                    <div class="players-hand"></div>
+                </div>
+                <div class="game-field">
+                    <div class="players-hand"></div>
                 </div>
             </div>
             <footer></footer>
         </div>
-        
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
         <!-- Дополнительные файлы -->
         <script src="js/db/card.js"></script>

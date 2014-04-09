@@ -1,0 +1,179 @@
+.assassin {
+  background: url(../img/heroes/assassin.png) 100% 100% no-repeat;
+  background-size: contain;
+}
+
+.thief {
+  background: url(../img/heroes/thief.png) 100% 100% no-repeat;
+  background-size: contain;
+}
+
+.mage {
+  background: url(../img/heroes/mage.png) 100% 100% no-repeat;
+  background-size: contain;
+}
+
+.king {
+  background: url(../img/heroes/king.png) 100% 100% no-repeat;
+  background-size: contain;
+}
+
+.bishop {
+  background: url(../img/heroes/bishop.png) 100% 100% no-repeat;
+  background-size: contain;
+}
+
+.merchant {
+  background: url(../img/heroes/merchant.png) 100% 100% no-repeat;
+  background-size: contain;
+}
+
+.architect {
+  background: url(../img/heroes/architect.png) 100% 100% no-repeat;
+  background-size: contain;
+}
+
+.warlord {
+  background: url(../img/heroes/warlord.png) 100% 100% no-repeat;
+  background-size: contain;
+}
+
+.market {
+  background: url(../img/cards/green/market.png) 100% no-repeat;
+  background-size: cover;
+}
+
+.docks {
+  background: url(../img/cards/green/docks.png) 100% no-repeat;
+  background-size: cover;
+}
+
+.harbor {
+  background: url(../img/cards/green/harbor.png) 100% no-repeat;
+  background-size: cover;
+}
+
+.tavern {
+  background: url(../img/cards/green/tavern.png) 100% no-repeat;
+  background-size: cover;
+}
+
+.townhall {
+  background: url(../img/cards/green/townhall.png) 100% no-repeat;
+  background-size: cover;
+}
+
+.tradingpost {
+  background: url(../img/cards/green/tradingpost.png) 100% no-repeat;
+  background-size: cover;
+}
+
+.manor {
+  background: url(../img/cards/yellow/manor.png) 100% no-repeat;
+  background-size: cover;
+}
+
+.castle {
+  background: url(../img/cards/yellow/castle.png) 100% no-repeat;
+  background-size: cover;
+}
+
+.palace {
+  background: url(../img/cards/yellow/palace.png) 100% no-repeat;
+  background-size: cover;
+}
+
+.cathedral {
+  background: url(../img/cards/blue/cathedral.png) 100% no-repeat;
+  background-size: cover;
+}
+
+.church {
+  background: url(../img/cards/blue/church.png) 100% no-repeat;
+  background-size: cover;
+}
+
+.monastery {
+  background: url(../img/cards/blue/monastery.png) 100% no-repeat;
+  background-size: cover;
+}
+
+.temple {
+  background: url(../img/cards/blue/temple.png) 100% no-repeat;
+  background-size: cover;
+}
+
+.watchtower {
+  background: url(../img/cards/red/watchtower.png) 100% no-repeat;
+  background-size: cover;
+}
+
+.battlefield {
+  background: url(../img/cards/red/battlefield.png) 100% no-repeat;
+  background-size: cover;
+}
+
+.prison {
+  background: url(../img/cards/red/prison.png) 100% no-repeat;
+  background-size: cover;
+}
+
+.fortress {
+  background: url(../img/cards/red/fortress.png) 100% no-repeat;
+  background-size: cover;
+}
+
+.dragongate {
+  background: url(../img/cards/purple/dragongate.png) 100% no-repeat;
+  background-size: cover;
+}
+
+.graveyard {
+  background: url(../img/cards/purple/graveyard.png) 100% no-repeat;
+  background-size: cover;
+}
+
+.greatwall {
+  background: url(../img/cards/purple/greatwall.png) 100% no-repeat;
+  background-size: cover;
+}
+
+.hauntedcity {
+  background: url(../img/cards/purple/hauntedcity.png) 100% no-repeat;
+  background-size: cover;
+}
+
+.keep {
+  background: url(../img/cards/purple/keep.png) 100% no-repeat;
+  background-size: cover;
+}
+
+.laboratory {
+  background: url(../img/cards/purple/laboratory.png) 100% no-repeat;
+  background-size: cover;
+}
+
+.library {
+  background: url(../img/cards/purple/library.png) 100% no-repeat;
+  background-size: cover;
+}
+
+.observatory {
+  background: url(../img/cards/purple/observatory.png) 100% no-repeat;
+  background-size: cover;
+}
+
+.schoolofmagic {
+  background: url(../img/cards/purple/schoolofmagic.png) 100% no-repeat;
+  background-size: cover;
+}
+
+.smithy {
+  background: url(../img/cards/purple/smithy.png) 100% no-repeat;
+  background-size: cover;
+}
+
+.university {
+  background: url(../img/cards/purple/university.png) 100% no-repeat;
+  background-size: cover;
+}

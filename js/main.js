@@ -66,10 +66,13 @@ function handingOut(arrDeck, arrPlayers) {
 
 //Visual - Показ Героев на экране
 Array.prototype._vShowMeHeroes = function() {
+    var heroChoise = '<div class="shading"><div class="hero-choice"></div></div>';
+    $(heroChoise).appendTo('body');
     for (var i = 0; i < this.length; i++) {
         var id = this[i];
-        $('.hero-choice').append('<div class="card hero '+id+'"></div>');
+        $('.hero-choice').append('<div class="card hero-card '+id+'"></div>');   
     }
+    $('.shading').fadeIn(200, 'linear');
 }
 
 createDeck();
@@ -153,10 +156,10 @@ $('#choose-a-hero').on('click', function(){
         shuffledHeroes._vShowMeHeroes();
 });
 
-$('.hero-choice').on('click', '.hero', function() {
-    var allHero = $('.hero');
+$('body').on('click', '.hero-card', function() {
+    var allHero = $('.hero-card');
     var chosenHero = $(this);
-    if(!allHero.hasClass('hero-pick')){
+    if(!allHero.hasClass('hero-pick')) {
         chosenHero.toggleClass('hero-pick');
     } else if(chosenHero.hasClass('hero-pick')) {
         chosenHero.toggleClass('hero-pick');
