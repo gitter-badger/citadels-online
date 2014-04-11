@@ -9,6 +9,17 @@ $bgColor: hsl(190, 55%, 71%);
 $butCol: hsl(190, 62%, 41%); //Button Color
 $butTextCol: hsl(190, 6%, 85%); //Button Text Color
 
+$tooltip_bg: hsla(53, 26%, 92%, 0.9);
+
+@mixin caret($point, $color) {
+  $opposite: opposite-position($point);
+  border: 10px solid transparent;
+  border-#{$opposite}: 10px solid $color;
+  border-#{$point}: 0;
+  width: 0;
+  height: 0;
+}
+
 .container {
     width: 1380px;    
     margin: 10px auto;
@@ -101,21 +112,52 @@ header {
     display: inline-block;
     top: 200px;
     padding: 15px;
-    .hero-card {
-        @include transition(all 0.1s ease-out);
+    .nonselected-hero {
+        @include transition(all 0.15s ease-in);
         width: $cardWidth * 1.5;
         height: $cardHeight * 1.5;
+        .tooltip {
+            visibility: hidden;
+            position: relative;
+            padding: 10px 5px;
+            width: $cardWidth * 1.5 - 10px;
+            top: $cardHeight * 1.5;
+            text-align: center;
+            background: $tooltip_bg;
+            opacity: 0;
+            font: 12px/18px 'Tahoma';
+            @include transition(all 0.15s ease-in);
+            &:before {
+              content:'';
+              @include caret(top, $tooltip_bg);
+              position: absolute;
+              top: -10px;
+              left: (($cardWidth * 1.5)/2) - 10px;
+            }
+            h4 {
+              margin:0;
+            }
+        }
         &:hover {
-            @include transition(all 0.1s ease-in);
+            @include transition(all 0.2s ease-out);
             @include box-shadow(5px 5px 3px rgba(black, 0.65));
             @include transform(translate(-5px, -5px));
+        }
+        &:hover .tooltip{
+            opacity: 1;
+            visibility: visible;
+            top: $cardHeight * 1.5 + 15px;
         }
     }
 }
 
-.hero-pick {
+.selected-hero {
     width: $cardWidth * 1.5;
     height: $cardHeight * 1.5;
+    @include transition(all 0.2s ease-in);
     @include box-shadow(0 0 15px 2px #FFD700);
     @include transform(scale(1.5, 1.5));
+    .tooltip {
+        display: none;
+    }
 }

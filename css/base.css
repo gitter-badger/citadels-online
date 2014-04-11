@@ -103,19 +103,48 @@ header nav:active {
   top: 200px;
   padding: 15px;
 }
-.hero-choice .hero-card {
-  -moz-transition: all 0.1s ease-out;
-  -o-transition: all 0.1s ease-out;
-  -webkit-transition: all 0.1s ease-out;
-  transition: all 0.1s ease-out;
+.hero-choice .nonselected-hero {
+  -moz-transition: all 0.15s ease-in;
+  -o-transition: all 0.15s ease-in;
+  -webkit-transition: all 0.15s ease-in;
+  transition: all 0.15s ease-in;
   width: 168px;
   height: 262.35958px;
 }
-.hero-choice .hero-card:hover {
-  -moz-transition: all 0.1s ease-in;
-  -o-transition: all 0.1s ease-in;
-  -webkit-transition: all 0.1s ease-in;
-  transition: all 0.1s ease-in;
+.hero-choice .nonselected-hero .tooltip {
+  visibility: hidden;
+  position: relative;
+  padding: 10px 5px;
+  width: 158px;
+  top: 262.35958px;
+  text-align: center;
+  background: rgba(240, 239, 229, 0.9);
+  opacity: 0;
+  font: 12px/18px 'Tahoma';
+  -moz-transition: all 0.15s ease-in;
+  -o-transition: all 0.15s ease-in;
+  -webkit-transition: all 0.15s ease-in;
+  transition: all 0.15s ease-in;
+}
+.hero-choice .nonselected-hero .tooltip:before {
+  content: '';
+  border: 10px solid transparent;
+  border-bottom: 10px solid rgba(240, 239, 229, 0.9);
+  border-top: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: -10px;
+  left: 74px;
+}
+.hero-choice .nonselected-hero .tooltip h4 {
+  margin: 0;
+}
+.hero-choice .nonselected-hero:hover {
+  -moz-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
   -moz-box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.65);
   -webkit-box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.65);
   box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.65);
@@ -124,10 +153,19 @@ header nav:active {
   -webkit-transform: translate(-5px, -5px);
   transform: translate(-5px, -5px);
 }
+.hero-choice .nonselected-hero:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+  top: 277.35958px;
+}
 
-.hero-pick {
+.selected-hero {
   width: 168px;
   height: 262.35958px;
+  -moz-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
   -moz-box-shadow: 0 0 15px 2px gold;
   -webkit-box-shadow: 0 0 15px 2px gold;
   box-shadow: 0 0 15px 2px gold;
@@ -135,4 +173,7 @@ header nav:active {
   -ms-transform: scale(1.5, 1.5);
   -webkit-transform: scale(1.5, 1.5);
   transform: scale(1.5, 1.5);
+}
+.selected-hero .tooltip {
+  display: none;
 }

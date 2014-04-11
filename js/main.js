@@ -69,8 +69,10 @@ Array.prototype._vShowMeHeroes = function() {
     var heroChoise = '<div class="shading"><div class="hero-choice"></div></div>';
     $(heroChoise).appendTo('body');
     for (var i = 0; i < this.length; i++) {
-        var id = this[i];
-        $('.hero-choice').append('<div class="card hero-card '+id+'"></div>');   
+        var id = this[i],
+            heroTitle = _gHero[this[i]]['heroName'];
+            heroDescript= _gHero[this[i]]['descript']; 
+        $('.hero-choice').append('<div class="card hero-card nonselected-hero '+id+'"><div class="tooltip"><h4>'+heroTitle+'</h4><p>'+heroDescript+'</p></div></div>');   
     }
     $('.shading').fadeIn(200, 'linear');
 }
@@ -159,10 +161,10 @@ $('#choose-a-hero').on('click', function(){
 $('body').on('click', '.hero-card', function() {
     var allHero = $('.hero-card');
     var chosenHero = $(this);
-    if(!allHero.hasClass('hero-pick')) {
-        chosenHero.toggleClass('hero-pick');
-    } else if(chosenHero.hasClass('hero-pick')) {
-        chosenHero.toggleClass('hero-pick');
+    if(!allHero.hasClass('selected-hero')) {
+        chosenHero.toggleClass('nonselected-hero').toggleClass('selected-hero');
+    } else if(chosenHero.hasClass('selected-hero')) {
+        chosenHero.toggleClass('selected-hero').toggleClass('nonselected-hero');
     }
 });
 
