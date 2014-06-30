@@ -66,13 +66,17 @@ function handingOut(arrDeck, arrPlayers) {
 
 //Visual - Показ Героев на экране
 Array.prototype._vShowMeHeroes = function() {
-    var heroChoise = '<div class="shading"><div class="hero-choice"></div></div>';
+    var heroChoise = '<div class="shading"><div action="/h" method="POST" class="hero-choice"></div></div>';
     $(heroChoise).appendTo('body');
+    $('.hero-choice').html('');
     for (var i = 0; i < this.length; i++) {
         var id = this[i],
             heroTitle = _gHero[this[i]]['heroName'];
             heroDescript= _gHero[this[i]]['descript']; 
-        $('.hero-choice').append('<div class="card hero-card nonselected-hero '+id+'"><div class="tooltip"><h4>'+heroTitle+'</h4><p>'+heroDescript+'</p></div></div>');   
+        $('.hero-choice').append(
+            '<div class="card hero-card ' + id +
+            '"><div class="tooltip"><h4>' + heroTitle +
+            '</h4><p>' + heroDescript + '</p></div></div>');
     }
     $('.shading').fadeIn(200, 'linear');
 }
@@ -152,15 +156,16 @@ edTest();
 
 
 $('#choose-a-hero').on('click', function(){
-        $('.hero-choice').empty('<div>');
+        
         heroShuffle();
         console.log(shuffledHeroes);
         shuffledHeroes._vShowMeHeroes();
 });
 
 $('body').on('click', '.hero-card', function() {
-    var allHero = $('.hero-card');
-    var chosenHero = $(this);
+    var  allHero = $('.hero-card')
+        ,chosenHero = $(this);
+
     if(!allHero.hasClass('selected-hero')) {
         chosenHero.toggleClass('nonselected-hero').toggleClass('selected-hero');
     } else if(chosenHero.hasClass('selected-hero')) {

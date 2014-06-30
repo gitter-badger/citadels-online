@@ -39,141 +39,141 @@
 }
 
 .market {
-  background: url(../img/cards/green/market.png) 100% no-repeat;
-  background-size: cover;
+  background: url(../img/cards/green/market.png) 100% 100% no-repeat;
+  background-size: contain;
 }
 
 .docks {
-  background: url(../img/cards/green/docks.png) 100% no-repeat;
-  background-size: cover;
+  background: url(../img/cards/green/docks.png) 100% 100% no-repeat;
+  background-size: contain;
 }
 
 .harbor {
-  background: url(../img/cards/green/harbor.png) 100% no-repeat;
-  background-size: cover;
+  background: url(../img/cards/green/harbor.png) 100% 100% no-repeat;
+  background-size: contain;
 }
 
 .tavern {
-  background: url(../img/cards/green/tavern.png) 100% no-repeat;
-  background-size: cover;
+  background: url(../img/cards/green/tavern.png) 100% 100% no-repeat;
+  background-size: contain;
 }
 
 .townhall {
-  background: url(../img/cards/green/townhall.png) 100% no-repeat;
-  background-size: cover;
+  background: url(../img/cards/green/townhall.png) 100% 100% no-repeat;
+  background-size: contain;
 }
 
 .tradingpost {
-  background: url(../img/cards/green/tradingpost.png) 100% no-repeat;
-  background-size: cover;
+  background: url(../img/cards/green/tradingpost.png) 100% 100% no-repeat;
+  background-size: contain;
 }
 
 .manor {
-  background: url(../img/cards/yellow/manor.png) 100% no-repeat;
-  background-size: cover;
+  background: url(../img/cards/yellow/manor.png) 100% 100% no-repeat;
+  background-size: contain;
 }
 
 .castle {
-  background: url(../img/cards/yellow/castle.png) 100% no-repeat;
-  background-size: cover;
+  background: url(../img/cards/yellow/castle.png) 100% 100% no-repeat;
+  background-size: contain;
 }
 
 .palace {
-  background: url(../img/cards/yellow/palace.png) 100% no-repeat;
-  background-size: cover;
+  background: url(../img/cards/yellow/palace.png) 100% 100% no-repeat;
+  background-size: contain;
 }
 
 .cathedral {
-  background: url(../img/cards/blue/cathedral.png) 100% no-repeat;
-  background-size: cover;
+  background: url(../img/cards/blue/cathedral.png) 100% 100% no-repeat;
+  background-size: contain;
 }
 
 .church {
-  background: url(../img/cards/blue/church.png) 100% no-repeat;
-  background-size: cover;
+  background: url(../img/cards/blue/church.png) 100% 100% no-repeat;
+  background-size: contain;
 }
 
 .monastery {
-  background: url(../img/cards/blue/monastery.png) 100% no-repeat;
-  background-size: cover;
+  background: url(../img/cards/blue/monastery.png) 100% 100% no-repeat;
+  background-size: contain;
 }
 
 .temple {
-  background: url(../img/cards/blue/temple.png) 100% no-repeat;
-  background-size: cover;
+  background: url(../img/cards/blue/temple.png) 100% 100% no-repeat;
+  background-size: contain;
 }
 
 .watchtower {
-  background: url(../img/cards/red/watchtower.png) 100% no-repeat;
-  background-size: cover;
+  background: url(../img/cards/red/watchtower.png) 100% 100% no-repeat;
+  background-size: contain;
 }
 
 .battlefield {
-  background: url(../img/cards/red/battlefield.png) 100% no-repeat;
-  background-size: cover;
+  background: url(../img/cards/red/battlefield.png) 100% 100% no-repeat;
+  background-size: contain;
 }
 
 .prison {
-  background: url(../img/cards/red/prison.png) 100% no-repeat;
-  background-size: cover;
+  background: url(../img/cards/red/prison.png) 100% 100% no-repeat;
+  background-size: contain;
 }
 
 .fortress {
-  background: url(../img/cards/red/fortress.png) 100% no-repeat;
-  background-size: cover;
+  background: url(../img/cards/red/fortress.png) 100% 100% no-repeat;
+  background-size: contain;
 }
 
 .dragongate {
-  background: url(../img/cards/purple/dragongate.png) 100% no-repeat;
-  background-size: cover;
+  background: url(../img/cards/purple/dragongate.png) 100% 100% no-repeat;
+  background-size: contain;
 }
 
 .graveyard {
-  background: url(../img/cards/purple/graveyard.png) 100% no-repeat;
-  background-size: cover;
+  background: url(../img/cards/purple/graveyard.png) 100% 100% no-repeat;
+  background-size: contain;
 }
 
 .greatwall {
-  background: url(../img/cards/purple/greatwall.png) 100% no-repeat;
-  background-size: cover;
+  background: url(../img/cards/purple/greatwall.png) 100% 100% no-repeat;
+  background-size: contain;
 }
 
 .hauntedcity {
-  background: url(../img/cards/purple/hauntedcity.png) 100% no-repeat;
-  background-size: cover;
+  background: url(../img/cards/purple/hauntedcity.png) 100% 100% no-repeat;
+  background-size: contain;
 }
 
 .keep {
-  background: url(../img/cards/purple/keep.png) 100% no-repeat;
-  background-size: cover;
+  background: url(../img/cards/purple/keep.png) 100% 100% no-repeat;
+  background-size: contain;
 }
 
 .laboratory {
-  background: url(../img/cards/purple/laboratory.png) 100% no-repeat;
-  background-size: cover;
+  background: url(../img/cards/purple/laboratory.png) 100% 100% no-repeat;
+  background-size: contain;
 }
 
 .library {
-  background: url(../img/cards/purple/library.png) 100% no-repeat;
-  background-size: cover;
+  background: url(../img/cards/purple/library.png) 100% 100% no-repeat;
+  background-size: contain;
 }
 
 .observatory {
-  background: url(../img/cards/purple/observatory.png) 100% no-repeat;
-  background-size: cover;
+  background: url(../img/cards/purple/observatory.png) 100% 100% no-repeat;
+  background-size: contain;
 }
 
 .schoolofmagic {
-  background: url(../img/cards/purple/schoolofmagic.png) 100% no-repeat;
-  background-size: cover;
+  background: url(../img/cards/purple/schoolofmagic.png) 100% 100% no-repeat;
+  background-size: contain;
 }
 
 .smithy {
-  background: url(../img/cards/purple/smithy.png) 100% no-repeat;
-  background-size: cover;
+  background: url(../img/cards/purple/smithy.png) 100% 100% no-repeat;
+  background-size: contain;
 }
 
 .university {
-  background: url(../img/cards/purple/university.png) 100% no-repeat;
-  background-size: cover;
+  background: url(../img/cards/purple/university.png) 100% 100% no-repeat;
+  background-size: contain;
 }
