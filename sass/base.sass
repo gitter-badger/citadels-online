@@ -2,12 +2,11 @@
 
 $cardWidth: 112px
 $cardHeight: $cardWidth * 1.561664190193165
-$handWidth: $cardWidth * 8
-$handHeight: $cardHeight
 
 $bgColor: hsl(190, 55%, 71%)
 $butCol: hsl(190, 62%, 41%) //Button Color
 $butTextCol: hsl(190, 6%, 85%) //Button Text Color
+$cActiveCard: #EEDB6B
 
 $tooltipBg: hsla(53, 26%, 92%, 0.9)
 
@@ -20,15 +19,16 @@ $tooltipBg: hsla(53, 26%, 92%, 0.9)
     height: 0
 
 
-.container 
-    width: 1380px    
+.container    
+    min-width: 1000px
     margin: 10px auto
 
 
-header 
+HEADER
     background-color: $bgColor
     padding: 5px
     vertical-align: top
+
     .logo 
         width: 200px
         height: 59.33333333333333px
@@ -36,11 +36,11 @@ header
         background: url(../img/logo.png) 100% 100% no-repeat
         background-size: cover
     
-    div, nav 
+    DIV, LI, NAV
         display: inline-block
         position: relative
     
-    nav 
+    LI
         color: $butTextCol
         font-size: 20px
         padding: 10px
@@ -66,56 +66,60 @@ header
 
 .main 
     position: relative
-    text-align: center
-    background-color: hsla(52, 46%, 94%, 0.8) 
+    text-align: left
+    background-color: #F7F6EC
 
-
-.game-field 
+.card-field
     display: inline-block
-    margin: 10px 0 0 15px
-    padding: 15px
-    background-color: grey
-    .players-hero 
-        
-    
-    .players-hand 
-        width: $handWidth
-        height: $handHeight
-    
+    width: 100%
+    min-height: 184px
+    padding: 10px
+    margin: 10px
+    background-color: rgba(#BBBBB6, 0.8)
+    text-align: left
+    font-size: 0
 
+    H3
+        font-size: 20px
+        margin: 0 0 0 10px
+
+.hero-pick, .card-pick
+    display: none
+    visibility: hidden
+    opacity: 0    
+    +transition(all 0.1s ease-out)
+
+    &._active
+        display: inline-block
+        visibility: visible
+        opacity: 1
 
 .card 
     display: inline-block
     width: $cardWidth
     height: $cardHeight
     vertical-align: middle
-    margin: 0 5px
+    margin: 5px
     border-radius: 10px
-    cursor: pointer    
-
-
-.shading 
-    display: none
-    position: fixed
-    width: 100%
-    height: 100%
-    background: hsla(0, 0%, 16%, 0.9)
-    top: 0
-    left: 0
-    z-index: 100
-    text-align: center
-    vertical-align: middle
-
-.hero-card
+    cursor: pointer
     +transition(all 0.15s ease)
+
+    &:hover 
+        +box-shadow(5px 5px 3px rgba(black, 0.65))
+        +transform(translate(-5px, -5px))
+
+        .tooltip
+            opacity: 1
+            visibility: visible
+            top: $cardHeight + 15px
 
     .tooltip 
         visibility: hidden
         position: relative
-        padding: 10px 5px
+        padding: 10px 15px 5px
         width: $cardWidth * 1.5 - 10px
-        top: $cardHeight * 1.5
-        text-align: center
+        top: $cardHeight + 20px
+        text-align: left
         background: $tooltipBg
         opacity: 0
         font: 12px/18px 'Tahoma'
@@ -126,32 +130,20 @@ header
             +caret(top, $tooltipBg)
             position: absolute
             top: -10px
-            left: (($cardWidth * 1.5)/2) - 10px
+            left: (($cardWidth)/2) - 10px
         
-        h4 
+        H4 
             margin: 0
 
-    &:hover .tooltip
-        opacity: 1
-        visibility: visible
-        top: $cardHeight + 15px
-
-
-.hero-choice 
-    position: relative
-    display: inline-block
-    top: 200px
-    padding: 15px
-
-    .hero-card
-        width: $cardWidth
-        height: $cardHeight           
-        
-        &:hover 
-            +box-shadow(5px 5px 3px rgba(black, 0.65))
-            +transform(translate(-5px, -5px))     
-
-        &.selected-hero
-            +box-shadow(0 0 15px 2px #FFD700)
-        
+.hero-card
        
+.hero-pick
+    .hero-card
+        &.selected-hero
+            +box-shadow(0 0 15px 2px gold)
+
+.players-stat
+    float: right
+    width: 200px
+    background: green
+    height: 500px

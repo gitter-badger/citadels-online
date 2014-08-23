@@ -66,19 +66,19 @@ function handingOut(arrDeck, arrPlayers) {
 
 //Visual - Показ Героев на экране
 Array.prototype._vShowMeHeroes = function() {
-    var heroChoise = '<div class="shading"><div action="/h" method="POST" class="hero-choice"></div></div>';
-    $(heroChoise).appendTo('body');
-    $('.hero-choice').html('');
+    var heroPick = $('.js-hero-pick');
+    heroPick.html('');
+    heroPick.append('<h3>Выбор героя</h3>');
     for (var i = 0; i < this.length; i++) {
         var id = this[i],
             heroTitle = _gHero[this[i]]['heroName'];
             heroDescript= _gHero[this[i]]['descript']; 
-        $('.hero-choice').append(
+        heroPick.append(
             '<div class="card hero-card ' + id +
             '"><div class="tooltip"><h4>' + heroTitle +
             '</h4><p>' + heroDescript + '</p></div></div>');
     }
-    $('.shading').fadeIn(200, 'linear');
+    heroPick.addClass('_active');
 }
 
 createDeck();
@@ -115,17 +115,17 @@ Player.prototype = {
 }
 
 var ivanOpt = {
-    'playerName'        : 'Ivan',
+    'playerName'        : 'ivan',
     'playerHero'        : _gHero['merchant']
 };
 var vasyaOpt = {
-    'playerName'        : 'Vasya'
+    'playerName'        : 'vasya'
 };
 var petyaOpt = {
-    'playerName'        : 'Petya'
+    'playerName'        : 'petya'
 };
 var valeraOpt = {
-    'playerName'        : 'Valera'
+    'playerName'        : 'valera'
 };
 
 var ivan = new Player(ivanOpt);
@@ -163,14 +163,37 @@ $('#choose-a-hero').on('click', function(){
 });
 
 $('body').on('click', '.hero-card', function() {
-    var  allHero = $('.hero-card')
-        ,chosenHero = $(this);
+    var  $that = $(this)
+        ,$allHeroes = $('.hero-card');
 
-    if(!allHero.hasClass('selected-hero')) {
-        chosenHero.toggleClass('nonselected-hero').toggleClass('selected-hero');
-    } else if(chosenHero.hasClass('selected-hero')) {
-        chosenHero.toggleClass('selected-hero').toggleClass('nonselected-hero');
-    }
+    $that.toggleClass('selected-hero', !$allHeroes.hasClass('selected-hero'));
 });
 
+
+//AJAX training
+
+$('#deal-the-cards').on('click', function() {
+    var pl = players.length;
+    for(var i = 0; i < pl; i++) {
+        collectDealedCards(players[i].options);
+    }     
+});
+
+function collectDealedCards(deal) {
+    var  dealLenght = deal.hand.length
+        ,playerName = deal['playerName'];
+    console.log(playerName);
+    for(var i = 0; i < dealLenght; i++) {
+        var  cardId = deal.hand[i]
+            ,cardName = _gDeck[cardId]['cardName'];
+        $('.player-hand[data-player-name="' + playerName + '"]').append('<div class="card ' + cardName + '">');
+    }
+};
+
+
 })();
+
+
+
+
+
