@@ -1,0 +1,67 @@
+var _gHero = {
+  'assassin': {
+    'priority'  : '1',
+    'heroClass' : 'assassin',
+    'heroName'  : 'Ассасин',
+    'heroColor' : false,
+    'crown'     : false,
+    'descript'  : 'Назови персонажа, на которго покушаешься. Если убитый персонаж на руках у кого-то из игроков, этот игрок пропускает свой ход.'
+  },
+  'thief': {
+    'priority'  : '2',
+    'heroClass' : 'thief',
+    'heroName'  : 'Вор',
+    'heroColor' : false,
+    'crown'     : false,
+    'descript'  : 'Назови персонажа, которого хочешь обокрасть. Если ограбленный персонаж на руках у кого-то из игроков, в начале его хода ты забираешь его золотые.'
+  },
+  'mage': {
+    'priority'  : '3',
+    'heroClass' : 'mage',
+    'heroName'  : 'Чародей',
+    'heroColor' : false,
+    'crown'     : false,
+    'descript'  : 'Ты можешь поменять свои карты на карты любого другого игрока, либо сбросить любое число карт и вытянуть столько же карт из колоды.'
+  },
+  'king': {
+    'priority'  : '4',
+    'heroClass' : 'king',
+    'heroName'  : 'Король',
+    'heroColor' : 'yellow',
+    'crown'     : true,
+    'descript' :  'Ты получаешь золотой за каждый дворянский (желтый) квартал. Игрок, взявший Короля получает корону в момент начала его хода.'
+  },
+  'bishop': {
+    'priority'  : '5',
+    'heroClass' : 'bishop',
+    'heroName'  : 'Епископ',
+    'heroColor' : 'blue',
+    'crown'     : false,
+    'descript'  : 'Ты получаешь золотой за каждый церковный (синий) квартал. Твои кварталы не может уничтожить Кондотьер.'
+  },
+  'merchant': {
+    'priority'  : '6',
+    'heroClass' : 'merchant',
+    'heroName'  : 'Купец',
+    'heroColor' : 'green',
+    'crown'     : false,
+    'descript'  : 'Ты получаешь золотой за каждый торговый (зеленый) квартал. В начале твоего хода ты получаешь 1 дополнительный золотой.'
+  },
+  'architect': {
+    'priority'  : '7',
+    'heroClass' : 'architect',
+    'heroName'  : 'Зодчий',
+    'heroColor' : false,
+    'crown'     : false,
+    'descript'  : 'После твоего действия возьми на руки две дополнительные карты. Ты можешь строить до трех кварталов за ход.'
+  },
+  'warlord': {
+    'priority'  : '8',
+    'heroClass' : 'warlord',
+    'heroName'  : 'Кондотьер',
+    'heroColor' : 'red',
+    'crown'     : false,
+    'descript'  : 'Ты получаешь золотой за каждый военный (красный) квартал. Ты можешь разрушать кварталы противников за золотые в размере на один золотой меньше стоимости квартала.'
+  }
+
+}
