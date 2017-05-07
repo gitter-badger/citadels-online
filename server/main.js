@@ -11,6 +11,10 @@ const app = express()
 // Apply gzip compression
 app.use(compress())
 
+console.log('SAM TI TEST')
+
+console.log('TEST')
+
 // ------------------------------------
 // Apply Webpack HMR Middleware
 // ------------------------------------
