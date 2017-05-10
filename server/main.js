@@ -11,9 +11,16 @@ const app = express()
 // Apply gzip compression
 app.use(compress())
 
-console.log('SAM TI TEST')
+app.post('/api/auth', function (req, res) {
+  const result = {
+    userName: 'Ed',
+    userEmail: 'edbond88@gmail.com',
+    userId: 1
+  }
 
-console.log('TEST')
+  res.set('content-type', 'application/json')
+  res.send(result)
+})
 
 // ------------------------------------
 // Apply Webpack HMR Middleware
@@ -31,6 +38,7 @@ if (project.env === 'development') {
     lazy        : false,
     stats       : project.compiler_stats
   }))
+
   app.use(require('webpack-hot-middleware')(compiler, {
     path: '/__webpack_hmr'
   }))

@@ -8,7 +8,8 @@ class CoreLayout extends Component {
   static propTypes = {
     children : PropTypes.element.isRequired,
     appData : PropTypes.shape({
-      userName: PropTypes.string
+      userName: PropTypes.string,
+      isLogin: PropTypes.bool.isRequired
     })
   }
 
@@ -16,13 +17,14 @@ class CoreLayout extends Component {
     const {
       children,
       appData: {
-        userName
+        userName,
+        isLogin
       }
     } = this.props
 
     return (
       <div className="container text-center">
-        <Header userName={userName} />
+        <Header userName={userName} isLogin={isLogin} />
         <div className="core-layout__viewport">
           {children}
         </div>

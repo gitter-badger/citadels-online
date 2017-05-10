@@ -3,6 +3,7 @@ import CoreLayoutContainer from '../layouts/CoreLayout/CoreLayoutContainer'
 import Home from './Home'
 import RoomsRoute from './Rooms'
 import LobbyRoute from './Lobby'
+import AuthRoute from './Auth'
 
 /*  Note: Instead of using JSX, we recommend using react-router
     PlainRoute objects to build route definitions.   */
@@ -13,7 +14,8 @@ export const createRoutes = (store) => ({
   indexRoute  : Home,
   childRoutes : [
     RoomsRoute(store),
-    LobbyRoute(store)
+    LobbyRoute(store),
+    AuthRoute(store)
   ]
 })
 
