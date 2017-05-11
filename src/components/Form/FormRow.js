@@ -6,10 +6,10 @@ import './FormRow.scss'
 class FormRow extends Component {
   static propTypes = {
     label: PropTypes.string,
-    inpType: PropTypes.string.isRequired,
-    inpValue: PropTypes.string,
-    inpOnChange: PropTypes.func,
-    inpName: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+    value: PropTypes.string,
+    inputOnChange: PropTypes.func,
+    name: PropTypes.string.isRequired,
     classes: PropTypes.string,
     isRequired: PropTypes.bool
   }
@@ -17,10 +17,10 @@ class FormRow extends Component {
   render () {
     const {
       label,
-      inpType,
-      inpOnChange,
-      inpName,
-      inpValue,
+      type,
+      inputOnChange,
+      name,
+      value,
       classes,
       isRequired
     } = this.props
@@ -30,10 +30,10 @@ class FormRow extends Component {
         <label className="form-label">{label}</label>
         <input
           className="form-input"
-          name={inpName}
-          type={inpType}
-          onChange={inpOnChange}
-          value={inpValue}
+          name={name}
+          type={type}
+          onChange={inputOnChange}
+          value={value}
           required={isRequired}
         />
       </div>

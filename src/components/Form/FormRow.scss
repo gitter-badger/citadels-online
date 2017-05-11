@@ -8,9 +8,9 @@
     display: block;
   }
 
-  &-input[type="TEXT"],
-  &-input[type="EMAIL"],
-  &-input[type="PASSWORD"] {
+  [type="text"],
+  [type="email"],
+  [type="password"] {
     width: 100%;
     padding: 10px 20px;
     border-radius: 3px;

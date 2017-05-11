@@ -11,7 +11,7 @@ import {
   URL
 } from '../../../modules/constants'
 
-import serverRequest from '../../../modules/helpers/serverRequest'
+import { serverRequest } from '../../../modules/helpers/'
 
 export const logIn = (formData) => {
   return (dispatch, getState) => {

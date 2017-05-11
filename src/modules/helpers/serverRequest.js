@@ -25,10 +25,10 @@ export default function serverRequest (params) {
   console.log('req: ', params)
 
   let requestOpts = {
-    method: method,
-    mode: mode,
-    credentials: credentials,
-    headers: headers
+    method,
+    mode,
+    credentials,
+    headers
   }
 
   if (method === 'PUT' || method === 'POST') {

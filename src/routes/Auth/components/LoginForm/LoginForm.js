@@ -26,14 +26,14 @@ class LoginForm extends Component {
         <form className="auth-form" onSubmit={this.submitLoginForm} action="/api/auth" method="POST">
           <FormRow
             label="Email:"
-            inpName="email"
-            inpType="email"
+            name="email"
+            type="email"
             isRequired={true}
           />
           <FormRow
             label="Password:"
-            inpName="password"
-            inpType="password"
+            name="password"
+            type="password"
             isRequired={true}
           />
           <div className="form-row">
