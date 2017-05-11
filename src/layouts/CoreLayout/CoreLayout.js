@@ -45,7 +45,7 @@ class CoreLayout extends Component {
         </NavDrawer>
         <Panel>
           <AppBar leftIcon="menu" onLeftIconClick={this.toggleDrawerActive}>
-            <Header userName={userName} />
+            <Header userName={userName} isLogin={isLogin} />
           </AppBar>
           <div style={{ flex: 1, overflowY: 'auto', padding: '1.8rem' }}>
             {children}
