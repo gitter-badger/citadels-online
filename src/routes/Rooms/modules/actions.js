@@ -1,7 +1,7 @@
 import {
   REQ_GET_ROOMS_START,
-  REQ_GET_ROOMS_SUCCESS,
-  REQ_GET_ROOMS_FAIL
+  REQ_GET_ROOMS_SUCCESS
+  // REQ_GET_ROOMS_FAIL
 } from './constants'
 
 export const loadRooms = () => {

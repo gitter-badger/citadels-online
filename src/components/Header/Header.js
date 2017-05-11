@@ -15,13 +15,17 @@ export const Header = (props) => (
       </Link>
     </nav>
     <div className="user-info">
-      Привет, {props.userName}
+      {props.isLogin
+        ? <span>Привет, {props.userName} {' · '} <Link to="/auth">Logout</Link></span>
+        : <Link to="/auth">Login</Link>
+      }
     </div>
   </div>
 )
 
 Header.propTypes = {
-  userName: PropTypes.string
+  userName: PropTypes.string,
+  isLogin: PropTypes.bool.isRequired
 }
 
 export default Header

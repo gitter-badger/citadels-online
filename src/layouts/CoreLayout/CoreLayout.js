@@ -10,7 +10,8 @@ class CoreLayout extends Component {
   static propTypes = {
     children : PropTypes.element.isRequired,
     appData : PropTypes.shape({
-      userName: PropTypes.string
+      userName: PropTypes.string,
+      isLogin: PropTypes.bool.isRequired
     })
   }
 
@@ -26,7 +27,8 @@ class CoreLayout extends Component {
     const {
       children,
       appData: {
-        userName
+        userName,
+        isLogin
       }
     } = this.props
 
@@ -43,7 +45,7 @@ class CoreLayout extends Component {
         </NavDrawer>
         <Panel>
           <AppBar leftIcon="menu" onLeftIconClick={this.toggleDrawerActive}>
-            <Header userName={userName} />
+            <Header userName={userName} isLogin={isLogin} />
           </AppBar>
           <div style={{ flex: 1, overflowY: 'auto', padding: '1.8rem' }}>
             {children}
