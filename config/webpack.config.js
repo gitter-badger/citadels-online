@@ -17,7 +17,7 @@ const webpackConfig = {
   devtool : project.compiler_devtool,
   resolve : {
     root       : project.paths.client(),
-    extensions : ['', '.js', '.jsx', '.json']
+    extensions : ['', '.js', '.jsx', '.json', '.scss']
   },
   module : {}
 }
@@ -135,26 +135,6 @@ webpackConfig.module.loaders = [{
 // css-loader not to duplicate minimization.
 const BASE_CSS_LOADER = 'css?sourceMap&-minimize'
 
-webpackConfig.module.loaders.push({
-  test    : /\.scss$/,
-  exclude : null,
-  loaders : [
-    'style',
-    BASE_CSS_LOADER,
-    'postcss',
-    'sass?sourceMap'
-  ]
-})
-webpackConfig.module.loaders.push({
-  test    : /\.css$/,
-  exclude : null,
-  loaders : [
-    'style',
-    BASE_CSS_LOADER,
-    'postcss'
-  ]
-})
-
 webpackConfig.sassLoader = {
   includePaths : project.paths.client('styles')
 }
@@ -176,6 +156,93 @@ webpackConfig.postcss = [
     sourcemap     : true
   })
 ]
+
+// ------------------------------------
+// Loaders When CSS Modules Are Enabled
+// ------------------------------------
+if (project.compiler_css_modules) {
+  const cssModulesLoader = [
+    BASE_CSS_LOADER,
+    'modules',
+    'importLoaders=1',
+    'localIdentName=[name]__[local]___[hash:base64:5]'
+  ].join('&')
+
+  // What files do we want to treat as CSS modules? By default, we
+  // only treat all files in this project's /src/ directory as
+  // CSS modules.
+  const cssModulesPaths = new RegExp('(' + [
+    project.paths.client(),
+    'react-toolbox'
+  ].join('|') + ')')
+
+  webpackConfig.module.loaders.push({
+    test: /\.scss$/,
+    include: cssModulesPaths,
+    loaders: [
+      'style',
+      cssModulesLoader,
+      'postcss',
+      'sass?sourceMap'
+    ]
+  })
+
+  webpackConfig.module.loaders.push({
+    test: /\.css$/,
+    include: cssModulesPaths,
+    loaders: [
+      'style',
+      cssModulesLoader,
+      'postcss'
+    ]
+  })
+
+  // Loaders for files that should not be treated as CSS modules.
+  webpackConfig.module.loaders.push({
+    test: /\.scss$/,
+    exclude: cssModulesPaths,
+    loaders: [
+      'style',
+      BASE_CSS_LOADER,
+      'postcss',
+      'sass?sourceMap'
+    ]
+  })
+  webpackConfig.module.loaders.push({
+    test: /\.css$/,
+    exclude: cssModulesPaths,
+    loaders: [
+      'style',
+      BASE_CSS_LOADER,
+      'postcss'
+    ]
+  })
+}
+
+// ------------------------------------
+// Loaders When CSS Modules Are Disabled
+// ------------------------------------
+if (!project.compiler_css_modules) {
+  webpackConfig.module.loaders.push({
+    test    : /\.scss$/,
+    exclude : null,
+    loaders : [
+      'style',
+      BASE_CSS_LOADER,
+      'postcss',
+      'sass?sourceMap'
+    ]
+  })
+  webpackConfig.module.loaders.push({
+    test    : /\.css$/,
+    exclude : null,
+    loaders : [
+      'style',
+      BASE_CSS_LOADER,
+      'postcss'
+    ]
+  })
+}
 
 // File loaders
 /* eslint-disable */

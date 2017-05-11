@@ -2,14 +2,16 @@ import React from 'react'
 import DuckImage from '../assets/Duck.jpg'
 import './HomeView.scss'
 
+import { Button } from 'react-toolbox/lib/button'
+
 export const HomeView = () => (
-  <div>
-    <h4>Welcome!</h4>
-    <img
-      alt="This is a duck, because Redux!"
-      className="duck"
-      src={DuckImage}
-    />
+  <div className="home-view">
+    <h4>Test react-toolbox</h4>
+    <Button icon="bookmark" label="Bookmark" accent />
+    <Button icon="bookmark" label="Bookmark" raised primary />
+    <Button icon="inbox" label="Inbox" flat />
+    <Button icon="add" floating />
+    <Button icon="add" floating accent mini />
   </div>
 )
 
