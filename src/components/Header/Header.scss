@@ -1,4 +1,5 @@
 .header {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -6,6 +7,7 @@
 
 .header-nav {
   padding: 10px 20px;
+  font-weight: 300;
 }
 
 .route--active {
