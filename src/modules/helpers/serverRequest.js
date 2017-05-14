@@ -1,13 +1,13 @@
-let myHeaders = new Headers({
+const myHeaders = {
   'Accept': 'application/json',
   'Content-Type': 'application/json'
-})
+}
 
 const defaultParams = {
   url: '/',
   method: 'GET',
-  mode: 'cors',
-  credentials: 'same-origin',
+  // mode: 'cors',
+  // credentials: 'same-origin',
   headers: myHeaders,
   body: null
 }
@@ -16,8 +16,8 @@ export default function serverRequest (params) {
   const {
     url,
     method,
-    mode,
-    credentials,
+    // mode,
+    // credentials,
     headers,
     body
   } = { ...defaultParams, ...params }
@@ -26,14 +26,17 @@ export default function serverRequest (params) {
 
   let requestOpts = {
     method,
-    mode,
-    credentials,
+    // mode,
+    // credentials,
     headers
   }
 
   if (method === 'PUT' || method === 'POST') {
     requestOpts.body = JSON.stringify(body)
   }
+
+  console.log('test serverRequest')
+  console.log(requestOpts)
 
   return fetch(url, requestOpts)
     .then((response) => {
@@ -43,6 +46,7 @@ export default function serverRequest (params) {
       return response
     })
     .then((response) => {
+      console.log(response)
       return response.json()
     })
     .catch((error) => {

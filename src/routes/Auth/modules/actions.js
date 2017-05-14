@@ -9,9 +9,9 @@ import {
 
 import {
   URL
-} from '../../../modules/constants'
+} from 'modules/constants'
 
-import { serverRequest } from '../../../modules/helpers/'
+import { serverRequest } from 'modules/helpers/'
 
 export const logIn = (formData) => {
   return (dispatch, getState) => {
@@ -21,7 +21,8 @@ export const logIn = (formData) => {
 
     serverRequest({
       url: URL.login,
-      method: 'POST'
+      method: 'POST',
+      body: formData
     }).then((res) => {
       dispatch({
         type: REQ_POST_LOGIN_FORM_SUCCESS,

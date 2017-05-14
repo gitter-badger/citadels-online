@@ -1,3 +1,3 @@
 export const URL = {
-  login: '/api/auth'
+  login: '/auth/login'
 }

@@ -16,6 +16,9 @@ class LoginForm extends Component {
     const form = e.target
     const serializedFormData = serialize(form, { hash: true })
 
+    console.log('serializedFormData')
+    console.log(serializedFormData)
+
     logIn(serializedFormData)
   }
 
@@ -23,21 +26,21 @@ class LoginForm extends Component {
     return (
       <div className="auth">
         <h2>Login:</h2>
-        <form className="auth-form" onSubmit={this.submitLoginForm} action="/api/auth" method="POST">
+        <form className="auth-form" onSubmit={this.submitLoginForm} action="/api/auth/login" method="POST">
           <FormRow
             label="Email:"
             name="email"
             type="email"
-            isRequired={true}
+            isRequired
           />
           <FormRow
             label="Password:"
             name="password"
             type="password"
-            isRequired={true}
+            isRequired
           />
           <div className="form-row">
-            <input className="ui-btn ui-btn--blue" type="submit" value="Log in" />
+            <input className="ui-btn ui-btn--blue" type="submit" value="Login" />
           </div>
         </form>
       </div>

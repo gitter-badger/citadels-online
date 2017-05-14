@@ -5,22 +5,21 @@ const webpack = require('webpack')
 const webpackConfig = require('../config/webpack.config')
 const project = require('../config/project.config')
 const compress = require('compression')
+const bodyParser = require('body-parser')
 
 const app = express()
 
 // Apply gzip compression
 app.use(compress())
 
-app.post('/api/auth', function (req, res) {
-  const result = {
-    userName: 'Ed',
-    userEmail: 'edbond88@gmail.com',
-    userId: 1
-  }
+// Tell the app to parse HTTP body messages
+app.use(bodyParser())
+app.use(bodyParser.urlencoded({ extended: false }))
 
-  res.set('content-type', 'application/json')
-  res.send(result)
-})
+// Routes
+const authRoutes = require('./routes/auth')
+
+app.use('/auth', authRoutes)
 
 // ------------------------------------
 // Apply Webpack HMR Middleware
