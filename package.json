@@ -29,7 +29,7 @@
       }
     },
     "dev": {
-      "command": "nodemon bin/dev-server --ignore dist --ignore coverage --ignore tests --ignore src",
+      "command": "nodemon bin/dev-server --exec babel-node --presets es2015 --ignore dist --ignore coverage --ignore tests --ignoresrc",
       "env": {
         "NODE_ENV": "development",
         "DEBUG": "app:*"
@@ -76,6 +76,7 @@
   "author": "Arthur Kuz, Ed Bond",
   "license": "MIT",
   "dependencies": {
+    "babel-cli": "^6.24.1",
     "babel-core": "^6.17.0",
     "babel-loader": "^6.2.5",
     "babel-plugin-transform-runtime": "^6.15.0",

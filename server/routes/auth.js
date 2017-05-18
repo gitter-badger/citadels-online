@@ -1,5 +1,5 @@
-const express = require('express')
-const validator = require('validator')
+import express from 'express'
+import validator from 'validator'
 
 const router = new express.Router()
 
@@ -109,4 +109,4 @@ router.post('/login', (req, res) => {
   })
 })
 
-module.exports = router
+export default router

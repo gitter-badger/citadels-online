@@ -1,11 +1,12 @@
-const express = require('express')
+import express from 'express'
+import path from 'path'
+import webpack from 'webpack'
+import webpackConfig from '../config/webpack.config'
+import project from '../config/project.config'
+import compress from 'compression'
+import bodyParser from 'body-parser'
+
 const debug = require('debug')('app:server')
-const path = require('path')
-const webpack = require('webpack')
-const webpackConfig = require('../config/webpack.config')
-const project = require('../config/project.config')
-const compress = require('compression')
-const bodyParser = require('body-parser')
 
 const app = express()
 
@@ -17,7 +18,7 @@ app.use(bodyParser())
 app.use(bodyParser.urlencoded({ extended: false }))
 
 // Routes
-const authRoutes = require('./routes/auth')
+import authRoutes from './routes/auth'
 
 app.use('/auth', authRoutes)
 
