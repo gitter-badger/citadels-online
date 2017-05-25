@@ -1,5 +1,6 @@
 import express from 'express'
 import validator from 'validator'
+import db from '../models'
 
 const router = new express.Router()
 
@@ -10,7 +11,7 @@ const router = new express.Router()
  * @returns {object} The result of validation. Object contains a boolean validation result,
  *                   errors tips, and a global message for the whole form.
  */
-const validateSignupForm = payload => {
+const validateSignUpForm = payload => {
   const errors = {}
   let isFormValid = true
   let message = ''
@@ -72,6 +73,19 @@ const validateLoginForm = payload => {
     message = 'Check the form for errors.'
   }
 
+  const user = db
+    .select('*')
+    .from('users')
+    .where({
+      email: 'test@test.com',
+      password: '123321'
+    })
+    .then(users => {
+      return users.toJSON()
+    })
+
+  console.log(user)
+
   return {
     success: isFormValid,
     message,
@@ -80,7 +94,7 @@ const validateLoginForm = payload => {
 }
 
 router.post('/signup', (req, res) => {
-  const validationResult = validateSignupForm(req.body)
+  const validationResult = validateSignUpForm(req.body)
 
   if (!validationResult.success) {
     return res.status(400).json({

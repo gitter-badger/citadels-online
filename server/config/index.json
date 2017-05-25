@@ -1,3 +1,4 @@
 {
-  "dbUri": "postgres://localhost:5432/citadels"
+  "dbUri": "postgres://localhost:5432/citadels",
+  "jwtSecret": "super secret"
 }

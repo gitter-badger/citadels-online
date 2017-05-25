@@ -5,6 +5,10 @@ import webpackConfig from '../config/webpack.config'
 import project from '../config/project.config'
 import compress from 'compression'
 import bodyParser from 'body-parser'
+import passport from 'passport'
+import config from './config'
+
+console.log(config)
 
 const debug = require('debug')('app:server')
 
