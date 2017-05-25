@@ -36,17 +36,16 @@ export default function serverRequest (params) {
   }
 
   return fetch(url, requestOpts)
-    .then((response) => {
+    .then(response => {
       if (!response.ok) {
-        throw new Error(response.statusText)
+        return Promise.reject(Error('Server error'))
       }
       return response
     })
-    .then((response) => {
+    .then(response => {
       return response.json()
     })
-    .catch((error) => {
-      console.error(error)
-      throw new Error(error)
+    .catch(error => {
+      return Promise.reject(Error(error))
     })
 }

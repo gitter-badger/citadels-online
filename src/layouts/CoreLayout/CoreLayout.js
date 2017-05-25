@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Layout, NavDrawer, Panel, AppBar } from 'react-toolbox';
+import { Layout, NavDrawer, Panel, AppBar } from 'react-toolbox'
 import Header from '../../components/Header'
+import Cookies from 'js-cookie'
 
 import './CoreLayout.scss'
 import '../../styles/core.scss'
@@ -12,7 +13,9 @@ class CoreLayout extends Component {
     appData : PropTypes.shape({
       userName: PropTypes.string,
       isLogin: PropTypes.bool.isRequired
-    })
+    }),
+    setUserDataFromCookie: PropTypes.func.isRequired,
+    checkUserAuth: PropTypes.func.isRequired
   }
 
   state = {
@@ -21,6 +24,21 @@ class CoreLayout extends Component {
 
   toggleDrawerActive = () => {
     this.setState({ drawerActive: !this.state.drawerActive })
+  }
+
+  componentWillMount () {
+    const { setUserDataFromCookie, checkUserAuth } = this.props
+    const { userName, userEmail, userId, sessionToken } = Cookies.get()
+
+    checkUserAuth()
+      .then(() => {
+        setUserDataFromCookie({
+          userName: userName,
+          userEmail: userEmail,
+          userId: userId,
+          sessionToken: sessionToken
+        })
+      }).catch((e) => {})
   }
 
   render () {

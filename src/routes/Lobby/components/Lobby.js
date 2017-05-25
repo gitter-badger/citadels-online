@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
+import { Button } from 'react-toolbox/lib/button'
+
 import './Lobby.scss'
 
 class Lobby extends Component {
@@ -26,7 +28,8 @@ class Lobby extends Component {
 
     return (
       <div className="lobby">
-        lobby page <b>#{url}</b>
+        <h3>Lobby room <b>#{url}</b></h3>
+        <Button icon="done" label="Ready" accent raised primary/>
       </div>
     )
   }

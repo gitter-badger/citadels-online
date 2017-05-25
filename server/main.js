@@ -1,4 +1,5 @@
 const express = require('express')
+const bodyParser = require('body-parser')
 const debug = require('debug')('app:server')
 const path = require('path')
 const webpack = require('webpack')
@@ -11,15 +12,68 @@ const app = express()
 // Apply gzip compression
 app.use(compress())
 
+app.use(bodyParser())
+app.use(bodyParser.urlencoded({ extended: false }))
+
+const users = [
+  {
+    id: 1,
+    name: 'Ed',
+    email: 'edbond88@gmail.com',
+    password: '123',
+    sessionToken: 'token555'
+  },
+  {
+    id: 2,
+    name: 'Art',
+    email: 'kuzarth@gmail.com',
+    password: '123',
+    sessionToken: 'token222'
+  }
+]
+
 app.post('/api/auth', function (req, res) {
-  const result = {
-    userName: 'Ed',
-    userEmail: 'edbond88@gmail.com',
-    userId: 1
+  const { email, password } = req.body
+
+  const registerUser = users.find((user, idx) => {
+    return (email === user.email && password === user.password)
+  })
+
+  if (!registerUser) {
+    return res.status(400).json({
+      success: false,
+      message: 'не верный юзер'
+    })
   }
 
-  res.set('content-type', 'application/json')
-  res.send(result)
+  return res.status(200).json({
+    success: true,
+    result: {
+      userId: registerUser.id,
+      userName: registerUser.name,
+      userEmail: registerUser.email,
+      sessionToken: registerUser.sessionToken
+    }
+  })
+})
+
+app.post('/api/authCheck', function (req, res) {
+  const { email, sessionToken } = req.body
+
+  const authUser = users.find((user, idx) => {
+    return (email === user.email && sessionToken === user.sessionToken)
+  })
+
+  if (!authUser) {
+    return res.status(400).json({
+      success: false,
+      message: 'не залогинен'
+    })
+  }
+
+  return res.status(200).json({
+    success: true
+  })
 })
 
 // ------------------------------------
