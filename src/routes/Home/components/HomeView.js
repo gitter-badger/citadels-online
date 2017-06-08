@@ -1,5 +1,4 @@
 import React from 'react'
-import DuckImage from '../assets/Duck.jpg'
 import './HomeView.scss'
 
 import { Button } from 'react-toolbox/lib/button'
